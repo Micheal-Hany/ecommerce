@@ -141,5 +141,12 @@ function checkAuthenticate()
         exit;
     }
 
+   
     // End 
+}
+function printFailure($massage){
+    echo json_encode(array("status" => "failure",  "massage"=>$massage));
+}
+function printSuccess($massage){
+    echo json_encode(array("status" => "success", "massage"=>$massage));
 }
