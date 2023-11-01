@@ -1,3 +1,4 @@
+
 <?php
 $dsn = "mysql:host=localhost;dbname=e-commerce";
 $user = "root";
@@ -14,10 +15,13 @@ try {
    header("Access-Control-Allow-Origin: *");
    header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, Access-Control-Allow-Origin");
    header("Access-Control-Allow-Methods: POST, OPTIONS , GET");
-   include "./functions.php";
+
+   // check if the file exists before including it
+
    if (!isset($notAuth)) {
       // checkAuthenticate();
    }
 } catch (PDOException $e) {
    echo $e->getMessage();
 }
+?>
