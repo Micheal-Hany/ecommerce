@@ -1,9 +1,4 @@
 <?php
-
-// ==========================================================
-//  Copyright Reserved Wael Wael Abo Hamza (Course Ecommerce)
-// ==========================================================
-
 define("MB", 1048576);
 
 function filterRequest($requestname)
@@ -44,9 +39,9 @@ function insertData($table, $data, $json = true)
     $count = $stmt->rowCount();
     if ($json == true) {
     if ($count > 0) {
-        echo json_encode(array("status" => "success"));
+        echo json_encode(array("status" => "success", "data"=>""));
     } else {
-        echo json_encode(array("status" => "failure"));
+        echo json_encode(array("status" => "failure", "data"=>""));
     }
   }
     return $count;
@@ -144,9 +139,17 @@ function checkAuthenticate()
    
     // End 
 }
-function printFailure($massage){
+function printFailure($massage = "none"){
     echo json_encode(array("status" => "failure",  "massage"=>$massage));
 }
-function printSuccess($massage){
+function printSuccess($massage = "none"){
     echo json_encode(array("status" => "success", "massage"=>$massage));
+}
+function printResult($count){
+if($count > 0) {printSuccess();}else{printFailure();}
+}
+function sendEmail($to, $title, $body){
+    $header="From: Eng: Micheal Hany"."\n"."CC: michealhany991@gmail.com";
+mail($to, $title, $body,$header );
+
 }

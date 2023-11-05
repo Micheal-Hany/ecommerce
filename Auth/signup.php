@@ -6,7 +6,7 @@ $username     =filterRequest('username');
 $email        =filterRequest('email');
 $phone        =filterRequest('phone');
 $password     =sha1('password');
-$verifayCode  ="0";
+$verifayCode  =rand(10000, 99999);
 
 $stmt=$con->prepare("SELECT * FROM `users` WHERE users_email=? OR users_phone=?");
 
@@ -22,7 +22,8 @@ else{
         "users_password"     =>$password,
         "users_email"        =>$email,
         "users_phone"        =>$phone,
-        "users_verifaycode"  =>"0",
+        "users_verifaycode"  =>$verifayCode,
     );
+    // sendEmail($email, 'Verifay Code', $verifayCode);
     insertData("users", $data);
 }
