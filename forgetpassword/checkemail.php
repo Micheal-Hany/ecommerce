@@ -13,6 +13,6 @@ $count=$stmt->rowCount();
 if($count> 0){
     $data=array("users_verifaycode"=>$verifaycode);
     updateData("users",$data, "users_email='$email'", false);
-    //send email
-    printResult($count);
+   
 }
+printResult($count);
