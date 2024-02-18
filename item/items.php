@@ -35,7 +35,5 @@ $items = getAllData("itemsview", "categories_id=$categoryId");
 
 //     echo json_encode(array("status" => "failure", "message" => "Database error: " . $e->getMessage()));
 // }
-
-
 ?>
 
